@@ -1,0 +1,41 @@
+[
+  {
+    "model": "mainapp.news",
+    "pk": 1,
+    "fields": {
+      "title": "My_First_News",
+      "preambule": "SomeNews",
+      "body": "I created new news in BraniacLMS",
+      "body_as_markdown": false,
+      "created_at": "2022-11-28T14:39:42.937Z",
+      "updated_at": "2022-11-28T14:40:17.360Z",
+      "deleted": false
+    }
+  },
+  {
+    "model": "mainapp.news",
+    "pk": 2,
+    "fields": {
+      "title": "My_Second_News",
+      "preambule": "SomeNews",
+      "body": "I'm also created many news in BraniacLMS",
+      "body_as_markdown": false,
+      "created_at": "2022-11-28T14:41:54.871Z",
+      "updated_at": "2022-11-28T14:41:56.650Z",
+      "deleted": false
+    }
+  },
+  {
+    "model": "mainapp.news",
+    "pk": 3,
+    "fields": {
+      "title": "My_Third_News",
+      "preambule": "SomeNews",
+      "body": "This is easy",
+      "body_as_markdown": false,
+      "created_at": "2022-11-28T14:42:49.122Z",
+      "updated_at": "2022-11-28T14:42:50.507Z",
+      "deleted": false
+    }
+  }
+]
