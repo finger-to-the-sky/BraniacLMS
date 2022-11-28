@@ -5,7 +5,7 @@
     "fields": {
       "title": "My_First_News",
       "preambule": "SomeNews",
-      "body": "I created new news in BraniacLMS",
+      "body": "I'm created new news in BraniacLMS",
       "body_as_markdown": false,
       "created_at": "2022-11-28T14:39:42.937Z",
       "updated_at": "2022-11-28T14:40:17.360Z",
