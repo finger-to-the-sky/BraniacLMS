@@ -18,14 +18,21 @@ class News(models.Model):
         self.save()
 
 
+class CoursesManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(deleted=False)
+
+
 class Courses(models.Model):
-    name = models.CharField(max_length=256, verbose_name='Name')
-    description = models.TextField(verbose_name='Description', blank=True, null=True)
-    description_as_markdown = models.BooleanField(verbose_name='As markdown', default=False)
-    cost = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Cost', default=0)
-    cover = models.CharField(max_length=25, default='no_image.svg', verbose_name='Cover')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created', editable=False)
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated', editable=False)
+    objects = CoursesManager()
+
+    name = models.CharField(max_length=256, verbose_name="Name")
+    description = models.TextField(verbose_name="Description", blank=True, null=True)
+    description_as_markdown = models.BooleanField(verbose_name="As markdown", default=False)
+    cost = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Cost", default=0)
+    cover = models.CharField(max_length=25, default="no_image.svg", verbose_name="Cover")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Created")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Edited")
     deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -47,7 +54,7 @@ class Lesson(models.Model):
     deleted = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.course.name} | {self.num} | {self.title} '
+        return f'{self.course.name} | {self.num} | {self.title}'
 
     def delete(self, *args):
         self.deleted = True
