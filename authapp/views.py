@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy
 
@@ -23,4 +23,12 @@ class CustomLoginView(LoginView):
                 mark_safe(f'Something goes wrong:<br>{msg}')
             )
         return self.render_to_response(self.get_context_data(form=form))
- 
+
+
+class CustomLogoutViews(LogoutView):
+    def dispatch(self, request, *args, **kwargs):
+        messages.add_message(
+            self.request,
+            messages.INFO,
+            mark_safe(self.get_context_data(gettext_lazy('See you later'))))
+        return super().dispatch(request, *args, **kwargs)
