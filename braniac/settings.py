@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'mainapp',
     'authapp',
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -55,24 +57,25 @@ ROOT_URLCONF = 'braniac.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            'templates',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            "templates",
         ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.template.context_processors.media',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'mainapp.context_processors.example.simple_context_processor',
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.template.context_processors.media",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'braniac.wsgi.application'
 
 
@@ -140,3 +143,10 @@ LOGIN_REDIRECT_URL = 'mainapp:main_page'
 LOGOUT_REDIRECT_URL = 'mainapp:main_page'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+AUTHENTICATION_BACKENDS = ('social_core.backends.github.GithubOAuth2',
+                           'django.contrib.auth.backends.ModelBackend')
+
+SOCIAL_AUTH_GITHUB_KEY = '343afceec738cc8ddc71'
+SOCIAL_AUTH_GITHUB_SECRET = '8aaa08a47b535881c95d569cd2ac277707969859'
+CRISPY_TEMPLATE_PACK = "bootstrap4"

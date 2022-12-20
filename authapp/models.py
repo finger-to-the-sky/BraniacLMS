@@ -21,8 +21,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username_validator = ASCIIUsernameValidator()
 
     username = models.CharField(gettext_lazy('username'), max_length=150, unique=True,
-                                help_text=gettext_lazy('Required. 150 characters of fewer. Letters, digits, '
-                                                       'and @/./+/-/_ only.'),
+                                help_text=_(
+                                    "Required. 150 characters or fewer. ASCII letters and digits only."
+                                ),
                                 validators=[username_validator],
                                 error_messages={"unique": gettext_lazy('A user with that username already exists')})
     first_name = models.CharField(gettext_lazy('first name'), max_length=150, blank=True)
