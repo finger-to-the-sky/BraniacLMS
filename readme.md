@@ -1,1 +1,1 @@
-Website "Braniac LMS" created on Django
+# Educational platform "Braniac LMS"
